@@ -1,15 +1,14 @@
 # palindrome number checker without converting to a string
 def is_palindrome(number):
     reverse_num = 0
-    if number > 0:
-        reverse_num.append(number % 10)
-        number //= 10
+    digit = 0
+    new_num = number
+    while new_num % 10 > 0:
+        digit = new_num % 10
+        reverse_num = (reverse_num * 10) + digit
+        new_num //= 10
+    return reverse_num == number
 
-    if reverse_num == number:
-        return True
-    return False 
+print(is_palindrome(350))
 
-print(is_palindrome(121))
-
-#logic for building up a new number is still compromised
-#yet to figure out maths
+# fixed, but probably not optimal
